@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "356101455757",
+    "project_id": "atelierpro3-sio2",
+    "storage_bucket": "atelierpro3-sio2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356101455757:android:fd03fa7ed696bf402347c4",
+        "android_client_info": {
+          "package_name": "com.example.flutter_projet3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNQ--2gwQH6gRTIfReKPfHmSHCLGbeBcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

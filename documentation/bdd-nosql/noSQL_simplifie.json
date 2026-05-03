@@ -1,0 +1,66 @@
+{
+    "compte": [
+        {
+            "id": 1,
+            "nomUser": "Dupont",
+            "prenomUser": "Charles",
+            "emailUser": "dupont.charles@exemple.com",
+            "mdpUser": "Mdp-A-Hasher/Chiffrer",
+            "role": "Patient",
+            "repas": [
+                1
+            ],
+            "passage": [
+                1
+            ],
+            "traitements": [
+                {
+                    "numTraitement": 1,
+                    "dateDebut": "2026-04-08",
+                    "medicaments": [
+                        {
+                            "nomMedicament": "Smecta",
+                            "posologie": "2 sachets par jour"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "repas": [
+        {
+            "id": 1,
+            "idUser": 1,
+            "numRepas": 1,
+            "dateRepas": "2026-04-08",
+            "typeRepas": "Petit-déjeuner",
+            "aliments": [
+                {
+                    "libelleAliment": "Banane",
+                    "categorieAliment": "Fruits et légumes"
+                }
+            ]
+        }
+    ],
+    "passage": [
+        {
+            "id": 1,
+            "idUser": 1,
+            "numPassage": 1,
+            "dureePassage": 25,
+            "dateHeureDebut": "2026-04-08T14:00:00",
+            "traitementComplementaire": "",
+            "volume": "beaucoup moins",
+            "consistanceDebut": "Boulettes séparées et dures comme des noix (évacuation difficile)",
+            "consistanceFin": "Boulettes séparées et dures comme des noix (évacuation difficile)",
+            "medicaments": [
+                {
+                    "nomMedoc": "Smecta"
+                },
+                {
+                    "nomMedoc": "Gaviscon"
+                }
+            ]
+        }
+    ]
+}

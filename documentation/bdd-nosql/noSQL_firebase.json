@@ -1,0 +1,77 @@
+{
+    "compte" : {
+        "id" : 1,
+        "nomUser" : "Dupont",
+        "prenomUser" : "Charles",
+        "emailUser" : "dupont.charles@exemple.com",
+        "mdpUser" : "Mdp-A-Hasher/Chiffrer",
+        "role" : {
+            "id" : 1,
+            "libelleRole" : "Patient / Medecin"
+        }, 
+        "repas" : [1],
+        "passage" : [],
+        "traitements" : [
+            {
+                "numTraitement" : 1,
+                "dateDebut" : "2026-04-08",
+                "medicaments" : [
+                    {
+                        "id" : 1,
+                        "nomMedicament" : "Smecta",
+                        "posologie" : "2 sachets par jour"
+                    }
+                ]
+            }
+        ]
+    }, 
+
+    "repas" : {
+        "id" : 1,
+        "idUser" : 1,
+        "numRepas" : 1,
+        "dateRepas" : "2026-04-08",
+        "typeRepas" : {
+            "id" : 1,
+            "libelleTypeRepas" : "Petit-déjeuner"
+        },
+        "aliments" : [
+            {
+                "id" : 1,
+                "libelleAliment" : "",
+                "categorieAliment" : {
+                    "id" : 1,
+                    "libelleCategorie" : "Fruits et légumes"
+                }
+            }
+        ]
+    }, 
+
+    "passage" : {
+        "id" : 1,
+        "idUser" : 1,
+        "numPassage" : 1,
+        "dureePassage" : 25, 
+        "dateHeureDebut" : "2026-04-08T14:00:00",
+        "traitementComplementaire" : "",
+        "volume" : {
+            "id" : 1,
+            "libelleVolume" : "beaucoup moins"
+        },
+        "consistanceDebut" : {
+            "id" : 1,
+            "libelleConsistance" : "Boulettes séparées et dures comme des noix (évacuation difficile)"
+        },
+        "consistanceFin" : {
+            "id" : 1,
+            "libelleConsistance" : "Boulettes séparées et dures comme des noix (évacuation difficile)"
+        }, 
+        "medicaments" : [
+            {
+                "id" : 1,
+                "nomMedoc" : "Smecta"
+            }
+        ]
+
+    }
+}
