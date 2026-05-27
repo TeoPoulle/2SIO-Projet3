@@ -1,7 +1,7 @@
 import 'package:flutter_projet3/model/medoc_model.dart';
 
 class TraitementModel {
-  final String numTraitement;
+  final int numTraitement;
   final DateTime dateDebut;
   final List<MedocModel> medicaments;
 
@@ -13,8 +13,11 @@ class TraitementModel {
 
   factory TraitementModel.fromMap(Map<String, dynamic> map) {
     return TraitementModel(
-      numTraitement: map['numTraitement'] ?? '',
-      dateDebut: DateTime.parse(map['dateDebut'] ?? DateTime.now().toIso8601String()),
+      // Firestore peut stocker ce champ comme int ou comme chaîne selon la provenance de la donnée.
+      numTraitement: int.tryParse(map['numTraitement'].toString()) ?? 0,
+      dateDebut: DateTime.parse(
+        (map['dateDebut'] ?? DateTime.now().toIso8601String()).toString(),
+      ),
       medicaments: (map['medicaments'] as List<dynamic>? ?? [])
           .map((medoc) => MedocModel.fromMap(medoc as Map<String, dynamic>))
           .toList(),
@@ -24,11 +27,11 @@ class TraitementModel {
   Map<String, dynamic> toMap() {
     return {
       'numTraitement': numTraitement,
-      'dateDebut': dateDebut.toIso8601String(),
+      // On reste proche du JSON de départ avec une date au format AAAA-MM-JJ.
+      'dateDebut': dateDebut.toIso8601String().split('T').first,
       'medicaments': medicaments.map((medoc) => medoc.toMap()).toList(),
     };
   }
-
 }
 
 

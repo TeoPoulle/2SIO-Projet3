@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_projet3/firebase_options.dart';
 import 'package:flutter_projet3/view/parameter_view.dart';
+import 'package:flutter_projet3/view/compte_view.dart';
 import 'package:flutter_projet3/view/login_view.dart';
 import 'package:flutter_projet3/view/signup_view.dart';
 // Import des widgets customs
 import 'package:flutter_projet3/view/customWidget/app_bar.dart';
 import 'package:flutter_projet3/view/customWidget/bottom_nav_bar.dart';
 import 'package:flutter_projet3/view/traitement_view.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,6 +39,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Maird'Alor",
+      locale: const Locale('fr', 'FR'),
+      supportedLocales: const [Locale('fr', 'FR'), Locale('en', 'US')],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: _themeMode,
@@ -45,11 +53,13 @@ class _MyAppState extends State<MyApp> {
         '/': (context) => AuthGate(
               isDark: _isDark,
               onThemeChanged: _setDarkMode,
+              user: FirebaseAuth.instance.currentUser,
             ),
         '/parameter': (context) =>
             ParameterApp(isDark: _isDark, onThemeChanged: _setDarkMode),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
+        '/compte': (context) => CompteApp(isDark: _isDark, onThemeChanged: _setDarkMode),
         // '/passage': (context) => const PassagePage(),
         // '/repas': (context) => const RepasPage(),
         '/traitement': (context) => TraitementApp(isDark: _isDark, onThemeChanged: _setDarkMode),
@@ -67,6 +77,7 @@ class AuthGate extends StatelessWidget {
     super.key,
     required this.isDark,
     required this.onThemeChanged,
+    required User? user,
   });
 
   @override
@@ -90,7 +101,6 @@ class AuthGate extends StatelessWidget {
 
 class MainApp extends StatelessWidget {
   final bool isDark;
-
   const MainApp({super.key, required this.isDark});
 
   @override
@@ -102,7 +112,12 @@ class MainApp extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Row(children: [])],
+          children: [Row(
+            children: [
+              
+            ]
+            )
+          ],
         ),
       ),
     );
